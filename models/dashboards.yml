@@ -1,0 +1,13 @@
+version: 2
+exposures:
+ - name: Executive Dashboard
+   type: dashboard
+   maturity: low
+   url: https://72304658.us2a.app.preset.io/superset/dashboard/9/?native_filters_key=1yZbKwaUjIRf4DYc02wRJN67bimI2VPVOvZAN5Ac77DE9sk1SYLazQyhUykyQ0yA
+   description: Executive Dashboard about Airbnb listings and hosts
+   depends_on:
+     - ref('dim_listings_w_hosts')
+     - ref('FULL_MOON_REVIEWS')
+   owner:
+      name: Shreyas Dhamore
+      email: shreyaasdhamore@gmail.com

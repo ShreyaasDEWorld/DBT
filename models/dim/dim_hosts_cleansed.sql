@@ -1,3 +1,4 @@
+{% do log("Starting execution for my_model", info=true) %}
 WITH src_hosts AS (
  SELECT
  *

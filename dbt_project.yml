@@ -22,6 +22,8 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
+on-run-end: "{{ log_results(results) }}"
+
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -31,6 +33,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbtlearn:
+      +materialized: view
+      +post-hook:
+        - "GRANT SELECT ON {{ this }} TO ROLE REPORTER"
       src:
          +materialized: view
       dim:
